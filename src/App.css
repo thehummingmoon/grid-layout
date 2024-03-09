@@ -1,0 +1,66 @@
+/* Basic reset for body margin */
+body {
+  margin: 0;
+}
+
+/* Styling for centered content */
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Layout styling */
+.layout {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  height: 100vh;
+  grid-gap: 0.2rem;
+}
+
+/* Mobile-first approach: Adjust grid areas for smaller screens */
+.layout {
+  grid-template-areas:
+    'content1 content1 content1 content1'
+    'content2 content2 content2 content2'
+    'content3 content3 content3 content3';
+}
+
+/* Adjustments for wider screens */
+@media only screen and (min-width: 768px) {
+  .layout {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-template-areas:
+      'content1 content2 content2 content2'
+      'content1 content2 content2 content2'
+      'content1 content2 content2 content2'
+      'content1 content2 content2 content2'
+      'content3 content3 content3 content3'
+      'content3 content3 content3 content3'
+      'content3 content3 content3 content3';
+  }
+}
+
+/* Content-specific styling */
+.content1 {
+  grid-area: content1;
+  background-color: pink;
+  resize: both;
+  overflow: auto; /* To handle resizing overflow */
+}
+
+.content2 {
+  grid-area: content2;
+  background-color: aqua;
+  resize: both;
+  overflow: auto;
+}
+
+.content3 {
+  grid-area: content3;
+  background-color: greenyellow;
+  resize: both;
+  overflow: auto;
+}
